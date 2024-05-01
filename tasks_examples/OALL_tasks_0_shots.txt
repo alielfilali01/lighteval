@@ -56,7 +56,7 @@ community|arabic_mmlu:sociology|0|0
 community|arabic_mmlu:us_foreign_policy|0|0
 community|arabic_mmlu:virology|0|0
 community|arabic_mmlu:world_religions|0|0
-community|arabic_exams|5|0|0
+community|arabic_exams|0|0
 community|acva:Algeria|0|0
 community|acva:Ancient_Egypt|0|0
 community|acva:Arab_Empire|0|0
