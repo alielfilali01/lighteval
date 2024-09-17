@@ -785,13 +785,40 @@ sciq_ar_task = LightevalTaskConfig(
 
 
 # madinah_qa
+# fmt: off
+MADINAH_QA_SUBSETS = ["Arabic Language (General)", "Arabic Language (Grammar)"]
+# fmt: on
+
+
 def madinah_qa_pfn(line, task_name: str = None):
     instruction = f"السؤال التالي هو سؤال متعدد الإختيارات. اختر الإجابة الصحيحة:\n\n"
-    choices = line["choices"]["text"]
-    valid_keys = line["choices"]["label"]
-    answer_index = valid_keys.index(line["answerKey"])
+    
+    # Define the mapping from Latin to Arabic letters
+    latin_to_arabic = {
+        'A': 'أ',
+        'B': 'ب',
+        'C': 'ج',
+        'D': 'د',
+        'E': 'هـ'
+    }
+    
+    # Create a list of valid choices with corresponding Arabic keys
+    choices = []
+    valid_keys_latin = []
+    valid_keys_arabic = []
+    
+    # Enumerate through the options and append the valid ones
+    for idx, key in enumerate(['A', 'B', 'C', 'D', 'E']):
+        option = line.get(f"Option {idx + 1}")
+        if option:  # Check if option is not null
+            choices.append(option)
+            valid_keys_latin.append(key)  # Append the Latin key (A, B, C, D, E)
+            valid_keys_arabic.append(latin_to_arabic[key])  # Append the corresponding Arabic letter
+    
+    # Find the correct index for the answer key in the Arabic version
+    answer_index = valid_keys_latin.index(line["Answer Key"])
 
-    query = f"{instruction}{line['question']}\n"
+    query = f"{instruction}{line['Question']}\n"
     query += "".join([f"{key}. {choice}\n" for key, choice in zip(valid_keys, choices)])
     query += "الإجابة:"
 
@@ -805,20 +832,35 @@ def madinah_qa_pfn(line, task_name: str = None):
     )
 
 
-madinah_qa_task = LightevalTaskConfig(
-    name="madinah_qa",
-    prompt_function=madinah_qa_pfn,
-    suite=["community"],
-    hf_repo="inceptionai/MadinahQA",
-    hf_subset="default",
-    hf_avail_splits=["train"],
-    evaluation_splits=["train"],
-    few_shots_split=None,
-    few_shots_select=None,
-    metric=[Metrics.loglikelihood_acc_norm],
-    trust_dataset=True,
-    version=0,
-)
+class CustomMadinahQATask(LightevalTaskConfig):
+    def __init__(
+        self,
+        name,
+        hf_subset,
+    ):
+        super().__init__(
+            name=name,
+            hf_subset=hf_subset,
+            prompt_function=madinah_qa_pfn,
+            hf_repo="MBZUAI/MadinahQA",
+            metric=[Metrics.loglikelihood_acc_norm],
+            hf_avail_splits=["test"],
+            evaluation_splits=["test"],
+            few_shots_split=["dev"],
+            few_shots_select="sequential",
+            suite=["community"],
+            generation_size=-1,
+            stop_sequence=None,
+            output_regex=None,
+            frozen=False,
+            trust_dataset=True,
+            version=0,
+        )
+
+
+MADINAH_QA_TASKS = [
+    CustomMadinahQATask(name=f"madinah_qa:{subset}", hf_subset=subset) for subset in MADINAH_QA_SUBSETS
+]
 
 
 TASKS_TABLE = (
@@ -828,6 +870,7 @@ TASKS_TABLE = (
     + ACVA_TASKS
     + ALGHAFA_TASKS
     + ARATRUST_TASKS
+    + MADINAH_QA_TASKS
     + [arabic_exams_task]
     + [race_ar_task]
     + [piqa_ar_task]
@@ -840,7 +883,6 @@ TASKS_TABLE = (
     + [hellaswag_okapi_ar_task]
     + [toxigen_ar_task]
     + [sciq_ar_task]
-    + [madinah_qa_task]
 )
 
 if __name__ == "__main__":
