@@ -8,7 +8,7 @@ community|alghafa:multiple_choice_rating_sentiment_no_neutral_task|0|0
 community|alghafa:multiple_choice_rating_sentiment_task|0|0
 community|alghafa:multiple_choice_sentiment_task|0|0
 community|arabic_exams|0|0
-community|arabic_mmlu|0|0
+community|arabic_mmlu_all|0|0
 community|madinah_qa|0|0
 community|aratrust:Trustfulness|0|0
 community|aratrust:MentalHealth|0|0
