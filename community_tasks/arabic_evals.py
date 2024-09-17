@@ -40,6 +40,15 @@ LETTER_INDICES_AR = ["أ", "ب", "ج", "د", "هـ", "و", "ز", "ح", "ط", "ي
 # fmt: on
 
 # ArabicMMLU
+# fmt: off
+ARABIC_MMLU_SUBSETS = [
+    "All", "Islamic Studies", "Islamic Studies (Middle School)", "Islamic Studies (Primary School)", "Islamic Studies (High School)",
+    "Driving Test", "Natural Science (Middle School)", "Natural Science (Primary School)", "History (Middle School)", "History (Primary School)",
+    "History (High School)", "General Knowledge", "General Knowledge (Middle School)", "General Knowledge (Primary School)", "Law (Professional)"
+]
+# fmt: on
+
+
 def arabic_mmlu_pfn(line, task_name: str = None):
     instruction = f"السؤال التالي هو سؤال متعدد الإختيارات. اختر الإجابة الصحيحة:\n\n"
     
@@ -83,20 +92,36 @@ def arabic_mmlu_pfn(line, task_name: str = None):
     )
 
 
-arabic_mmlu_all_task = LightevalTaskConfig(
-    name="arabic_mmlu",
-    prompt_function=arabic_mmlu_pfn,
-    suite=["community"],
-    hf_repo="MBZUAI/ArabicMMLU",
-    hf_subset="All",
-    hf_avail_splits=["test"],
-    evaluation_splits=["test"],
-    few_shots_split=None,
-    few_shots_select=None,
-    metric=[Metrics.loglikelihood_acc_norm],
-    trust_dataset=True,
-    version=0,
-)
+class CustomArabicMMLUTask(LightevalTaskConfig):
+    def __init__(
+        self,
+        name,
+        hf_subset,
+    ):
+        super().__init__(
+            name=name,
+            hf_subset=hf_subset,
+            prompt_function=arabic_mmlu_ht_pfn,
+            hf_repo="MBZUAI/ArabicMMLU",
+            metric=[Metrics.loglikelihood_acc_norm],
+            hf_avail_splits=["test"],
+            evaluation_splits=["test"],
+            few_shots_split=["dev"],
+            few_shots_select="sequential",
+            suite=["community"],
+            generation_size=-1,
+            stop_sequence=None,
+            output_regex=None,
+            frozen=False,
+            trust_dataset=True,
+            version=0,
+        )
+
+
+ARABIC_MMLU_TASKS = [
+    CustomArabicMMLUTask(name=f"arabic_mmlu:{subset}", hf_subset=subset) for subset in ARABIC_MMLU_SUBSETS
+]
+
 
 # ARABIC MMLU HT ##
 # fmt: off
@@ -797,7 +822,7 @@ madinah_qa_task = LightevalTaskConfig(
 
 
 TASKS_TABLE = (
-    [arabic_mmlu_all_task]
+    ARABIC_MMLU_TASKS
     + ARABIC_MMLU_HT_TASKS
     + ARABIC_MMLU_MT_TASKS
     + ACVA_TASKS
