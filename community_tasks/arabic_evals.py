@@ -42,9 +42,13 @@ LETTER_INDICES_AR = ["أ", "ب", "ج", "د", "هـ", "و", "ز", "ح", "ط", "ي
 # ArabicMMLU
 # fmt: off
 ARABIC_MMLU_SUBSETS = [
-    "All", "Islamic Studies", "Islamic Studies (Middle School)", "Islamic Studies (Primary School)", "Islamic Studies (High School)",
-    "Driving Test", "Natural Science (Middle School)", "Natural Science (Primary School)", "History (Middle School)", "History (Primary School)",
-    "History (High School)", "General Knowledge", "General Knowledge (Middle School)", "General Knowledge (Primary School)", "Law (Professional)"
+    "All", "Islamic Studies", "Islamic Studies (Middle School)", "Islamic Studies (Primary School)", "Islamic Studies (High School)", "Driving Test",
+    "Natural Science (Middle School)", "Natural Science (Primary School)", "History (Middle School)", "History (Primary School)", "History (High School)", "General Knowledge",
+    "General Knowledge (Middle School)", "General Knowledge (Primary School)", "Law (Professional)", "Physics (High School)", "Social Science (Middle School)",
+    "Social Science (Primary School)", "Management (University)", "Arabic Language (Middle School)", "Arabic Language (Primary School)", "Arabic Language (High School)", "Political Science (University)",
+    "Philosophy (High School)", "Accounting (University)", "Computer Science (Middle School)", "Computer Science (Primary School)", "Computer Science (High School)", "Computer Science (University)",
+    "Geography (Middle School)", "Geography (Primary School)", "Geography (High School)", "Math (Primary School)", "Biology (High School)", "Economics (Middle School)",
+    "Economics (High School)", "Economics (University)", "Arabic Language (General)", "Arabic Language (Grammar)", "Civics (Middle School)", "Civics (High School)"
 ]
 # fmt: on
 
