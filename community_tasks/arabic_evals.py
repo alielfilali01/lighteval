@@ -83,12 +83,12 @@ def arabic_mmlu_pfn(line, task_name: str = None):
     )
 
 
-arabic_mmlu_task = LightevalTaskConfig(
+arabic_mmlu_all_task = LightevalTaskConfig(
     name="arabic_mmlu",
     prompt_function=arabic_mmlu_pfn,
     suite=["community"],
     hf_repo="MBZUAI/ArabicMMLU",
-    hf_subset="default",
+    hf_subset="All",
     hf_avail_splits=["test"],
     evaluation_splits=["test"],
     few_shots_split=None,
@@ -797,7 +797,7 @@ madinah_qa_task = LightevalTaskConfig(
 
 
 TASKS_TABLE = (
-    [arabic_mmlu_task]
+    [arabic_mmlu_all_task]
     + ARABIC_MMLU_HT_TASKS
     + ARABIC_MMLU_MT_TASKS
     + ACVA_TASKS
