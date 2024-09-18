@@ -105,7 +105,7 @@ class CustomArabicMMLUTask(LightevalTaskConfig):
         super().__init__(
             name=name,
             hf_subset=hf_subset,
-            prompt_function=arabic_mmlu_ht_pfn,
+            prompt_function=arabic_mmlu_pfn,
             hf_repo="MBZUAI/ArabicMMLU",
             metric=[Metrics.loglikelihood_acc_norm],
             hf_avail_splits=["test"],
