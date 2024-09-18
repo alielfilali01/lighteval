@@ -823,7 +823,7 @@ def madinah_qa_pfn(line, task_name: str = None):
     answer_index = valid_keys_latin.index(line["Answer Key"])
 
     query = f"{instruction}{line['Question']}\n"
-    query += "".join([f"{key}. {choice}\n" for key, choice in zip(valid_keys, choices)])
+    query += "".join([f"{key}. {choice}\n" for key, choice in zip(valid_keys_arabic, choices)])
     query += "الإجابة:"
 
     return Doc(
