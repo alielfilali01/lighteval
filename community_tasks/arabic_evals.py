@@ -832,7 +832,7 @@ def madinah_qa_pfn(line, task_name: str = None):
         choices=choices,
         gold_index=answer_index,  # Correct index in the valid keys
         instruction=instruction,
-        target_for_fewshot_sorting=valid_keys[answer_index],  # Correct answer in Latin form
+        target_for_fewshot_sorting=valid_keys_latin[answer_index],  # Correct answer in Latin form
     )
 
 
