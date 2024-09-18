@@ -8,7 +8,6 @@ community|alghafa:multiple_choice_rating_sentiment_no_neutral_task|0|0
 community|alghafa:multiple_choice_rating_sentiment_task|0|0
 community|alghafa:multiple_choice_sentiment_task|0|0
 community|arabic_exams|0|0
-community|arabic_mmlu:All|0|0
 community|arabic_mmlu:Islamic Studies|0|0
 community|arabic_mmlu:Islamic Studies (Middle School)|0|0
 community|arabic_mmlu:Islamic Studies (Primary School)|0|0
