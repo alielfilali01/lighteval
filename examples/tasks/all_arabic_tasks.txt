@@ -192,8 +192,48 @@ community|arabic_mmlu_ht:sociology|0|0
 community|arabic_mmlu_ht:us_foreign_policy|0|0
 community|arabic_mmlu_ht:virology|0|0
 community|arabic_mmlu_ht:world_religions|0|0
-community|arabic_mmlu|0|0
-community|madinah_qa|0|0
+community|arabic_mmlu:Islamic Studies|0|0
+community|arabic_mmlu:Islamic Studies (Middle School)|0|0
+community|arabic_mmlu:Islamic Studies (Primary School)|0|0
+community|arabic_mmlu:Islamic Studies (High School)|0|0
+community|arabic_mmlu:Driving Test|0|0
+community|arabic_mmlu:Natural Science (Middle School)|0|0
+community|arabic_mmlu:Natural Science (Primary School)|0|0
+community|arabic_mmlu:History (Middle School)|0|0
+community|arabic_mmlu:History (Primary School)|0|0
+community|arabic_mmlu:History (High School)|0|0
+community|arabic_mmlu:General Knowledge|0|0
+community|arabic_mmlu:General Knowledge (Middle School)|0|0
+community|arabic_mmlu:General Knowledge (Primary School)|0|0
+community|arabic_mmlu:Law (Professional)|0|0
+community|arabic_mmlu:Physics (High School)|0|0
+community|arabic_mmlu:Social Science (Middle School)|0|0
+community|arabic_mmlu:Social Science (Primary School)|0|0
+community|arabic_mmlu:Management (University)|0|0
+community|arabic_mmlu:Arabic Language (Middle School)|0|0
+community|arabic_mmlu:Arabic Language (Primary School)|0|0
+community|arabic_mmlu:Arabic Language (High School)|0|0
+community|arabic_mmlu:Political Science (University)|0|0
+community|arabic_mmlu:Philosophy (High School)|0|0
+community|arabic_mmlu:Accounting (University)|0|0
+community|arabic_mmlu:Computer Science (Middle School)|0|0
+community|arabic_mmlu:Computer Science (Primary School)|0|0
+community|arabic_mmlu:Computer Science (High School)|0|0
+community|arabic_mmlu:Computer Science (University)|0|0
+community|arabic_mmlu:Geography (Middle School)|0|0
+community|arabic_mmlu:Geography (Primary School)|0|0
+community|arabic_mmlu:Geography (High School)|0|0
+community|arabic_mmlu:Math (Primary School)|0|0
+community|arabic_mmlu:Biology (High School)|0|0
+community|arabic_mmlu:Economics (Middle School)|0|0
+community|arabic_mmlu:Economics (High School)|0|0
+community|arabic_mmlu:Economics (University)|0|0
+community|arabic_mmlu:Arabic Language (General)|0|0
+community|arabic_mmlu:Arabic Language (Grammar)|0|0
+community|arabic_mmlu:Civics (Middle School)|0|0
+community|arabic_mmlu:Civics (High School)|0|0
+community|madinah_qa:Arabic Language (General)|0|0
+community|madinah_qa:Arabic Language (Grammar)|0|0
 community|aratrust:Trustfulness|0|0
 community|aratrust:MentalHealth|0|0
 community|aratrust:PhysicalHealth|0|0
