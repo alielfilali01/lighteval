@@ -242,3 +242,4 @@ community|aratrust:Ethics|0|0
 community|aratrust:Privacy|0|0
 community|aratrust:Unfairness|0|0
 community|aratrust:Illegal|0|0
+community|arabic_mmmlu|0|0
